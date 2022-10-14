@@ -35,15 +35,29 @@ function getPlayerChoice() {
     }
 }
 
-
+function playRound(){
+    if (playerSign == computerSign) {
+        let result = "You tied.";
+        return result;
+    } else if (playerSign == "Rock" && computerSign == "Scissors") {
+        let result = "You won!.";
+        return result;
+    } else if (playerSign == "Paper" && computerSign == "Rock") {
+        let result = "You won!.";
+        return result;
+    } else if (playerSign == "Scissors" && computerSign == "Paper") {
+        let result = "You won!.";
+        return result;
+    } else {
+        let result = "You lost.";
+        return result;
+    }
+}
 
 computerSign = getComputerChoice();
-console.log(computerSign);
+console.log("Computer = " + computerSign);
 
 playerSign = getPlayerChoice();
-console.log(playerSign);
+console.log("Player = " + playerSign);
 
-
-
-console.log("Welcome to Rock, Paper, Scissors");
-console.log("You will be battling against The Computer. The first one to 5 points wins.")
+console.log(playRound());
