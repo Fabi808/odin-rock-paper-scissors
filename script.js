@@ -11,8 +11,6 @@
 */
 
 const signs = ["Rock", "Paper", "Scissors"];
-let playerSign;
-let computerSign;
 let playerScore = 0;
 let computerScore = 0;
 let gameOn = true;
@@ -35,24 +33,42 @@ function getPlayerChoice() {
     }
 }
 
-function playRound(){
+function printScore() {
+    console.log("Your score: " + playerScore);
+    console.log("Computer score: " + computerScore);
+}
+
+function playRound(playerSign, computerSign){
     if (playerSign == computerSign) {
         let result = "You tied.";
         return result;
     } else if (playerSign == "Rock" && computerSign == "Scissors") {
+        playerScore++;
         let result = "You won!.";
         return result;
     } else if (playerSign == "Paper" && computerSign == "Rock") {
+        playerScore++;
         let result = "You won!.";
         return result;
     } else if (playerSign == "Scissors" && computerSign == "Paper") {
+        playerScore++;
         let result = "You won!.";
         return result;
     } else {
+        computerScore++;
         let result = "You lost.";
         return result;
     }
 }
+
+function game() {
+    getComputerChoice();
+    getPlayerChoice();
+    playRound(playerSign, computerSign)
+    printScore();
+}
+
+
 
 computerSign = getComputerChoice();
 console.log("Computer = " + computerSign);
@@ -60,4 +76,16 @@ console.log("Computer = " + computerSign);
 playerSign = getPlayerChoice();
 console.log("Player = " + playerSign);
 
-console.log(playRound());
+while (gameOn === true) {
+    if (playerScore == 5 || computerScore == 5) {
+        gameOn = false;
+        console.log("Game over!");
+
+        if (playerScore > computerScore) {
+            console.log("You won the game!")
+        } else {
+            console.log("You lost the game.")
+        }
+    }
+    game();
+}
