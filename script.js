@@ -1,5 +1,5 @@
 /*
-- Create a list of throw signs, empty player and computer vars, score vars, gameOn var
+- Create a list of throw signs, declare undefined player and computer vars, score vars = 0, gameOn var = true
 - Create a function that randomly selects and returns a sign from list for the computer
 - Create a function to play a round
 - At the beginning of the round, ask for the player to select a sign
@@ -18,7 +18,32 @@ let computerScore = 0;
 let gameOn = true;
 
 function getComputerChoice() {
-    computerSign = signs[Math.floor(Math.random() * signs.length)];
+    return computerSign = signs[Math.floor(Math.random() * signs.length)];
 }
 
-console.log(getComputerChoice);
+function getPlayerChoice() {
+    playerSign = prompt("Choose your throw: Rock, Paper, or Scissors?");
+    tempSign = playerSign.toLowerCase();
+    playerSign = tempSign.charAt(0).toUpperCase() + tempSign.slice(1);
+
+    if (playerSign === "Rock" || playerSign === "Paper" || playerSign === "Scissors") {
+        return playerSign;
+    }
+    else {
+        alert("Sorry, that is not a valid throw. Try again.");
+        return getPlayerChoice();
+    }
+}
+
+
+
+computerSign = getComputerChoice();
+console.log(computerSign);
+
+playerSign = getPlayerChoice();
+console.log(playerSign);
+
+
+
+console.log("Welcome to Rock, Paper, Scissors");
+console.log("You will be battling against The Computer. The first one to 5 points wins.")
