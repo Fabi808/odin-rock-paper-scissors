@@ -67,6 +67,25 @@ function playRound(playerSign, computerSign){
     }
 }
 
+function playRoundRock() {
+    var pickedComputerSign = getComputerChoice();
+    var pickedPlayerSign = "Rock";
+    console.log(playRound(pickedPlayerSign, pickedComputerSign)); 
+  }
+  
+  function playRoundPaper() {
+    var pickedComputerSign = getComputerChoice();
+    var pickedPlayerSign = "Paper";
+    console.log(playRound(pickedPlayerSign, pickedComputerSign)); 
+  }
+  
+  function playRoundScissors() {
+    var pickedComputerSign = getComputerChoice();
+    var pickedPlayerSign = "Scissors";
+    console.log(playRound(pickedPlayerSign, pickedComputerSign)); 
+  }
+
+
 //Combines function to obtain player signs, prints, then compares. 
 function game() {
     // getComputerChoice();
@@ -83,6 +102,9 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper"); 
 const scissors = document.querySelector("#scissors"); 
 
+rock.addEventListener("click", playRoundRock);
+paper.addEventListener("click", playRoundPaper);
+scissors.addEventListener("click", playRoundScissors);
 
 
 
@@ -90,22 +112,21 @@ const scissors = document.querySelector("#scissors");
 
 
 
+// //Main body: Runs new rounds until someone reaches 5 pts. If so, check for who won and print final score and message. 
+// while (gameOn === true) {
+//     // if (playerScore === 5 || computerScore === 5) {
+//     //     gameOn = false;
+//     //     console.log("Game over!");
 
-//Main body: Runs new rounds until someone reaches 5 pts. If so, check for who won and print final score and message. 
-while (gameOn === true) {
-    // if (playerScore === 5 || computerScore === 5) {
-    //     gameOn = false;
-    //     console.log("Game over!");
-
-    //     if (playerScore > computerScore) {
-    //         console.log("You won the game!")
-    //         console.log("Final Scores: " + "Player: " + playerScore + " to " + "Computer: " + computerScore);
-    //         break;
-    //     } else {
-    //         console.log("The computer won the game!")
-    //         console.log("Final Scores: " + "Player: " + playerScore + " to " + "Computer: " + computerScore);
-    //         break;
-    //     }
-    // }
-    game();
-}
+//     //     if (playerScore > computerScore) {
+//     //         console.log("You won the game!")
+//     //         console.log("Final Scores: " + "Player: " + playerScore + " to " + "Computer: " + computerScore);
+//     //         break;
+//     //     } else {
+//     //         console.log("The computer won the game!")
+//     //         console.log("Final Scores: " + "Player: " + playerScore + " to " + "Computer: " + computerScore);
+//     //         break;
+//     //     }
+//     // }
+//     game();
+// }
