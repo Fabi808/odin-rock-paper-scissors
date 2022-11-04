@@ -10,15 +10,19 @@
 - Declare winner of the game
 */
 
+
+// Declare an array for signs and initialize score counter vars and gameOn bool.
 const signs = ["Rock", "Paper", "Scissors"];
 let playerScore = 0;
 let computerScore = 0;
 let gameOn = true;
 
+//This fuction uses Math library to randomly select a sign from the array for the computer.
 function getComputerChoice() {
     return computerSign = signs[Math.floor(Math.random() * signs.length)];
 }
 
+//Prompt user to pick a sign and convert it to title case. Use conditional to test whether user input a valid sign; if not, recursive prompt.
 function getPlayerChoice() {
     playerSign = prompt("Choose your throw: Rock, Paper, or Scissors?");
     tempSign = playerSign.toLowerCase();
@@ -33,24 +37,26 @@ function getPlayerChoice() {
     }
 }
 
+//Print the scores using concatenation.
 function printScore() {
     console.log("Your score: " + playerScore);
     console.log("Computer score: " + computerScore);
 }
 
+//Takes player signs as input and compares them against eachother, then returns a string called result. Also incremanets winner's score. 
 function playRound(playerSign, computerSign){
-    if (playerSign == computerSign) {
+    if (playerSign === computerSign) {
         let result = "You tied.";
         return result;
-    } else if (playerSign == "Rock" && computerSign == "Scissors") {
+    } else if (playerSign === "Rock" && computerSign === "Scissors") {
         playerScore++;
         let result = "You won!.";
         return result;
-    } else if (playerSign == "Paper" && computerSign == "Rock") {
+    } else if (playerSign === "Paper" && computerSign === "Rock") {
         playerScore++;
         let result = "You won!.";
         return result;
-    } else if (playerSign == "Scissors" && computerSign == "Paper") {
+    } else if (playerSign === "Scissors" && computerSign === "Paper") {
         playerScore++;
         let result = "You won!.";
         return result;
@@ -61,30 +67,32 @@ function playRound(playerSign, computerSign){
     }
 }
 
+//Combines function to obtain player signs, prints, then compares. 
 function game() {
     getComputerChoice();
     getPlayerChoice();
-    playRound(playerSign, computerSign)
+    console.log("Player = " + playerSign);
+    console.log("Computer = " + computerSign);
+    console.log(playRound(playerSign, computerSign));
     printScore();
+    console.log("========== New Round ==========")
 }
 
 
-
-computerSign = getComputerChoice();
-console.log("Computer = " + computerSign);
-
-playerSign = getPlayerChoice();
-console.log("Player = " + playerSign);
-
+//Main body: Runs new rounds until someone reaches 5 pts. If so, check for who won and print final score and message. 
 while (gameOn === true) {
-    if (playerScore == 5 || computerScore == 5) {
+    if (playerScore === 5 || computerScore === 5) {
         gameOn = false;
         console.log("Game over!");
 
         if (playerScore > computerScore) {
             console.log("You won the game!")
+            console.log("Final Scores: " + "Player: " + playerScore + " to " + "Computer: " + computerScore);
+            break;
         } else {
-            console.log("You lost the game.")
+            console.log("The computer won the game!")
+            console.log("Final Scores: " + "Player: " + playerScore + " to " + "Computer: " + computerScore);
+            break;
         }
     }
     game();
