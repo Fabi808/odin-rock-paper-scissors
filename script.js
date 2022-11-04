@@ -81,19 +81,19 @@ function game() {
 
 //Main body: Runs new rounds until someone reaches 5 pts. If so, check for who won and print final score and message. 
 while (gameOn === true) {
-    if (playerScore === 5 || computerScore === 5) {
-        gameOn = false;
-        console.log("Game over!");
+    // if (playerScore === 5 || computerScore === 5) {
+    //     gameOn = false;
+    //     console.log("Game over!");
 
-        if (playerScore > computerScore) {
-            console.log("You won the game!")
-            console.log("Final Scores: " + "Player: " + playerScore + " to " + "Computer: " + computerScore);
-            break;
-        } else {
-            console.log("The computer won the game!")
-            console.log("Final Scores: " + "Player: " + playerScore + " to " + "Computer: " + computerScore);
-            break;
-        }
-    }
+    //     if (playerScore > computerScore) {
+    //         console.log("You won the game!")
+    //         console.log("Final Scores: " + "Player: " + playerScore + " to " + "Computer: " + computerScore);
+    //         break;
+    //     } else {
+    //         console.log("The computer won the game!")
+    //         console.log("Final Scores: " + "Player: " + playerScore + " to " + "Computer: " + computerScore);
+    //         break;
+    //     }
+    // }
     game();
 }
