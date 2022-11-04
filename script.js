@@ -69,14 +69,26 @@ function playRound(playerSign, computerSign){
 
 //Combines function to obtain player signs, prints, then compares. 
 function game() {
-    getComputerChoice();
-    getPlayerChoice();
+    // getComputerChoice();
+    // getPlayerChoice();
     console.log("Player = " + playerSign);
     console.log("Computer = " + computerSign);
     console.log(playRound(playerSign, computerSign));
     printScore();
     console.log("========== New Round ==========")
 }
+
+
+const rock = document.querySelector("#rock"); 
+const paper = document.querySelector("#paper"); 
+const scissors = document.querySelector("#scissors"); 
+
+
+
+
+
+
+
 
 
 //Main body: Runs new rounds until someone reaches 5 pts. If so, check for who won and print final score and message. 
