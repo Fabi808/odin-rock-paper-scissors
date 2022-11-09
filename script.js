@@ -45,25 +45,21 @@ function printScore() {
 
 //Takes player signs as input and compares them against eachother, then returns a string called result. Also incremanets winner's score. 
 function playRound(playerSign, computerSign){
+    const announcement = document.querySelector("#announcement");
     if (playerSign === computerSign) {
-        let result = "You tied.";
-        return result;
+        announcement.textContent = "You tied.";
     } else if (playerSign === "Rock" && computerSign === "Scissors") {
         playerScore++;
-        let result = "You won!.";
-        return result;
+        announcement.textContent = "You won!";
     } else if (playerSign === "Paper" && computerSign === "Rock") {
         playerScore++;
-        let result = "You won!.";
-        return result;
+        announcement.textContent = "You won!";
     } else if (playerSign === "Scissors" && computerSign === "Paper") {
         playerScore++;
-        let result = "You won!.";
-        return result;
+        announcement.textContent = "You won!";
     } else {
         computerScore++;
-        let result = "You lost.";
-        return result;
+        announcement.textContent = "You lost.";
     }
 }
 
@@ -84,6 +80,10 @@ function playRoundRock() {
     var pickedPlayerSign = "Scissors";
     console.log(playRound(pickedPlayerSign, pickedComputerSign)); 
   }
+
+function announceWinner() {
+    
+}
 
 
 //Combines function to obtain player signs, prints, then compares. 
@@ -108,7 +108,7 @@ scissors.addEventListener("click", playRoundScissors);
 
 
 
-
+// ====== TO DO: Link the newly working event listeners to the main function of the game that keeps score and prints messages. ===============
 
 
 
