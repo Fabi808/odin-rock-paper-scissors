@@ -16,6 +16,7 @@ const signs = ["Rock", "Paper", "Scissors"];
 let playerScore = 0;
 let computerScore = 0;
 let gameOn = true;
+const scoreboard = document.querySelector("#scoreboard");
 
 //This fuction uses Math library to randomly select a sign from the array for the computer.
 function getComputerChoice() {
@@ -43,23 +44,28 @@ function printScore() {
     console.log("Computer score: " + computerScore);
 }
 
-//Takes player signs as input and compares them against eachother, then returns a string called result. Also incremanets winner's score. 
+//Takes player signs as input and compares them against eachother, then updates announcement div textContent. 
 function playRound(playerSign, computerSign){
     const announcement = document.querySelector("#announcement");
     if (playerSign === computerSign) {
         announcement.textContent = "You tied.";
+        announceScore();
     } else if (playerSign === "Rock" && computerSign === "Scissors") {
         playerScore++;
         announcement.textContent = "You won!";
+        announceScore();
     } else if (playerSign === "Paper" && computerSign === "Rock") {
         playerScore++;
         announcement.textContent = "You won!";
+        announceScore();
     } else if (playerSign === "Scissors" && computerSign === "Paper") {
         playerScore++;
         announcement.textContent = "You won!";
+        announceScore();
     } else {
         computerScore++;
         announcement.textContent = "You lost.";
+        announceScore();
     }
 }
 
@@ -81,8 +87,8 @@ function playRoundRock() {
     console.log(playRound(pickedPlayerSign, pickedComputerSign)); 
   }
 
-function announceWinner() {
-    
+function announceScore() {
+    scoreboard.textContent = "Your Score: " + playerScore + "   " + "Computer Score: " + computerScore;
 }
 
 
