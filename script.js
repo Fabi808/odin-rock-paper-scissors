@@ -5,6 +5,15 @@ let computerScore = 0;
 let gameOn = true;
 const scoreboard = document.querySelector("#scoreboard");
 
+//Query select each of the 3 html buttons. Then add event listeners for each thay runs the above corresponding function. 
+const rock = document.querySelector("#rock"); 
+const paper = document.querySelector("#paper"); 
+const scissors = document.querySelector("#scissors"); 
+
+rock.addEventListener("click", playRoundRock);
+paper.addEventListener("click", playRoundPaper);
+scissors.addEventListener("click", playRoundScissors);
+
 //This fuction uses Math library to randomly select a sign from the array for the computer.
 function getComputerChoice() {
     return computerSign = signs[Math.floor(Math.random() * signs.length)];
@@ -33,6 +42,7 @@ function playRound(playerSign, computerSign){
         announcement.textContent = "You lost.";
         announceScore();
     }
+    gameover();
 }
 
 /*(Noob method) Randomly generates comp sign then sets player sign based off button pressed. Runs a round which outputs results
@@ -60,13 +70,16 @@ function announceScore() {
     scoreboard.textContent = "Your Score: " + playerScore + "   " + "Computer Score: " + computerScore;
 }
 
-//Query select each of the 3 html buttons. Then add event listeners for each thay runs the above corresponding function. 
-const rock = document.querySelector("#rock"); 
-const paper = document.querySelector("#paper"); 
-const scissors = document.querySelector("#scissors"); 
-
-rock.addEventListener("click", playRoundRock);
-paper.addEventListener("click", playRoundPaper);
-scissors.addEventListener("click", playRoundScissors);
-
 //Main body of function. 
+function gameover() {
+    if (playerScore === 5) {
+        announcement.textContent = "Game over! You won the game!";
+        scoreboard.textContent = "Final scores: " + playerScore + " to " + computerScore;
+    } else if (computerScore === 5) {
+        announcement.textContent = "Game over! The Computer won the game!";
+        scoreboard.textContent = "Final scores: " + playerScore + " to " + computerScore;
+    }
+}
+
+
+
